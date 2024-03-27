@@ -4,11 +4,11 @@ import { getCategoryAPI } from '@/apis/category'
 import { useRoute } from 'vue-router'
 import { getBannerAPI } from '@/apis/home'
 import GoodsItem from '../Home/components/GoodsItem.vue'
-
+import { onBeforeRouteUpdate } from 'vue-router'
 
 const categoryData = ref({})
 const route = useRoute()
-const getCategoryData = async (id) => {
+const getCategoryData = async (id = route.params.id) => {
     const res = await getCategoryAPI(id)
     console.log(res);
     categoryData.value = res.result
@@ -17,6 +17,14 @@ const getCategoryData = async (id) => {
 onMounted(() => {
     // 获取路由参数 id, useRoute() -> route 等价于this.$route
     getCategoryData(route.params.id)
+})
+
+// 目标：路由参数变化的时候将分类数据接口重新发送
+// 这个vue函数能检测路由变化
+onBeforeRouteUpdate((to) => {
+    console.log("路由变化")
+    // 使用最新的路由参数请求最新的分类数据
+    getCategoryData(to.params.id)
 })
 
 // 获取banner
@@ -29,10 +37,7 @@ const getBanner = async () => {
     console.log(res)
     bannerList.value = res.result
 }
-
 onMounted(() => getBanner())
-
-
 
 </script>
 
