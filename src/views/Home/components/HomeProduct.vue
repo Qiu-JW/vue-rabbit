@@ -2,6 +2,8 @@
 import HomePanel from './HomePanel.vue'
 import { getGoodsAPI } from '@/apis/home' // 注意修改这里的导入
 import { ref, onMounted } from 'vue'
+import GoodsItem from './GoodsItem.vue'
+
 
 const goodsList = ref([]) // 将 newList 更改为 goodsList，以匹配新的函数名称
 const getGoodsList = async () => { // 将 getNewList 更改为 getGoodsList，以匹配新的函数名称
@@ -26,13 +28,8 @@ onMounted(() => {
                     </strong>
                 </RouterLink>
                 <ul class="goods-list">
-                    <li v-for="good in cate.goods" :key="good.id">
-                        <RouterLink :to="`/product/${good.id}`" class="goods-item">
-                            <img :src="good.picture" alt="" />
-                            <p class="name ellipsis">{{ good.name }}</p>
-                            <p class="desc ellipsis">{{ good.desc }}</p>
-                            <p class="price">&yen;{{ good.price }}</p>
-                        </RouterLink>
+                    <li v-for="goods in cate.goods" :key="goods.id">
+                        <GoodsItem :goods="goods" />
                     </li>
                 </ul>
             </div>
