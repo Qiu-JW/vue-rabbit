@@ -5,7 +5,7 @@ import { useCategoryStore } from '@/stores/category';
 
 const { y } = useScroll(window)
 // 使用pinia中的数据
-const categoryStore=useCategoryStore()
+const categoryStore = useCategoryStore()
 </script>
 
 <template>
@@ -14,7 +14,7 @@ const categoryStore=useCategoryStore()
             <RouterLink class="logo" to="/" />
             <!-- 导航区域 -->
             <ul class="app-header-nav">
-                <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+                <li v-for="item in categoryStore.categoryList" :key="item.id">
                     <RouterLink active-class="active" :to="`/category/${item.id}`">
                         {{ item.name }}
                     </RouterLink>
