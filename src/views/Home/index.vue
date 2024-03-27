@@ -3,6 +3,7 @@ import HomeCategory from './components/HomeCategory.vue'
 import HomeBanner from './components/HomeBanner.vue'
 import HomeNew from './components/HomeNew.vue'
 import HomeHot from './components/HomeHot.vue'
+import HomePanel from './components/HomePanel.vue'
 </script>
 
 <template>
@@ -12,5 +13,4 @@ import HomeHot from './components/HomeHot.vue'
     </div>
     <HomeNew />
     <HomeHot />
-
 </template>
