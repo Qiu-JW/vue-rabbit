@@ -3,13 +3,14 @@ import LayoutNav from './components/LayoutNav.vue'
 import LayoutHeader from './components/LayoutHeader.vue'
 import LayoutFooter from './components/LayoutFooter.vue'
 import LayoutStickyVue from './components/LayoutSticky.vue'
+import Home from '@/views/Home/index.vue'
 
 // 触发获取导航列表的action
 import { onMounted } from 'vue'
 import { useCategoryStore } from '@/stores/category'
 
 const categoryStore = useCategoryStore()
-onMounted(()=>categoryStore.getCategory() )
+onMounted(() => categoryStore.getCategory())
 
 </script>
 
@@ -17,6 +18,6 @@ onMounted(()=>categoryStore.getCategory() )
     <LayoutStickyVue />
     <LayoutNav />
     <LayoutHeader />
-    <RouterView />
+    <Home />
     <LayoutFooter />
 </template>
