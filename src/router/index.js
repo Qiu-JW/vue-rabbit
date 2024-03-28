@@ -34,7 +34,10 @@ const router = createRouter({
       path: '/login',
       component: Login
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  }
 })
 
 export default router

@@ -20,6 +20,6 @@ httpinstance.interceptors.request.use(config => {
 httpinstance.interceptors.response.use(res => res.data, e => {
     return Promise.reject(e)
 })
-
+    
 
 export default httpinstance

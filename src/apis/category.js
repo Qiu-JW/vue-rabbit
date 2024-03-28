@@ -1,12 +1,7 @@
-import http from '@/utils/http'
+import request from '@/utils/http'
 
-/**
- * @description: 获取分类数据 /category?id=10020
- * @param {*} id 分类id 
- * @return {*}
- */
-export const getCategoryAPI = (id) => {
-    return http({
+export function getCategoryAPI(id) {
+    return request({
         url: '/category',
         params: {
             id
@@ -19,14 +14,16 @@ export const getCategoryAPI = (id) => {
  * @param {*} id 分类id 
  * @return {*}
  */
+
 export const getCategoryFilterAPI = (id) => {
-    return http({
+    return request({
         url: '/category/sub/filter',
         params: {
             id
         }
     })
 }
+
 /**
  * @description: 获取导航数据
  * @data { 
