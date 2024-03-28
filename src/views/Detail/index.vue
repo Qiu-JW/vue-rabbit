@@ -118,8 +118,16 @@ onMounted(() => getGoods())
                         </div>
                         <!-- 24热榜+专题推荐 -->
                         <div class="goods-aside">
-                            <GoodHot />
-                            <GoodHot />
+                            <!-- 24小时热榜 -->
+                            <!-- <GoodHot :hot-type="1" /> -->
+                            <!-- 周热榜 -->
+                            <!-- <GoodHot :hot-type="2" /> -->
+
+
+                            <!-- 24小时热榜 -->
+                            <GoodHot :type="1" />
+                            <!-- 周热榜 -->
+                            <GoodHot :type="2" />
                         </div>
                     </div>
                 </div>
