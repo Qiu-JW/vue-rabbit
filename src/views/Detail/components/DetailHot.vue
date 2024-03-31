@@ -2,7 +2,6 @@
 import { ref, defineProps } from 'vue'
 import { getHotGoodsAPI } from '@/apis/detail'
 import { useRoute } from 'vue-router'
-
 // 定义组件属性
 const props = defineProps({
     type: {
