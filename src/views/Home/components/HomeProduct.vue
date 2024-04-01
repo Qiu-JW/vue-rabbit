@@ -8,7 +8,6 @@ import GoodsItem from './GoodsItem.vue'
 const goodsList = ref([]) // 将 newList 更改为 goodsList，以匹配新的函数名称
 const getGoodsList = async () => { // 将 getNewList 更改为 getGoodsList，以匹配新的函数名称
     const res = await getGoodsAPI() // 将 findNewAPI 更改为 getGoodsAPI，以匹配新的函数名称
-    console.log(res)
     goodsList.value = res.result // 将 newList 更改为 goodsList，以匹配新的变量名称
 }
 
