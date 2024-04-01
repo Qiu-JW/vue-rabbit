@@ -1,7 +1,7 @@
 //封装所有和用户相关的接口函数
 import http from '@/utils/http'
 // post请求 body参数
-export const loginApi = ({ account, password }) => {
+export const loginAPI = ({ account, password }) => {
     return http({
         url: '/login',
         method: 'POST',
