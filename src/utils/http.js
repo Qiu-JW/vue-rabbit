@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
 
 // 创建axios实例
 const httpinstance = axios.create({
@@ -18,6 +19,11 @@ httpinstance.interceptors.request.use(config => {
 // 在服务器响应后进行处理
 // 处理逻辑是响应成功则把正确的data打印出来，失败则使用promise对象给出错误信息
 httpinstance.interceptors.response.use(res => res.data, e => {
+    //统一错误提示  
+    ElMessage({
+        type: 'warning',
+        message: e.response.data.message 
+    })
     return Promise.reject(e)
 })
     
