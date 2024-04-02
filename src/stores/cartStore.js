@@ -2,8 +2,8 @@
 
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { useUserStore } from './user'
-import { insertCartAPI, findNewCartListAPI,delCartAPI } from '@/apis/cart'
+import { useUserStore } from './userStore'
+import { insertCartAPI, findNewCartListAPI, delCartAPI } from '@/apis/cart'
 
 
 export const useCartStore = defineStore('cart', () => {
@@ -25,10 +25,10 @@ export const useCartStore = defineStore('cart', () => {
     //         cartList.value.push(goods)
     //     }
     // }
-    
-    
-    
-    
+
+
+
+
     const userStore = useUserStore()
     const isLogin = computed(() => userStore.userInfo.token)
     //1.定义state - cartList
@@ -56,7 +56,7 @@ export const useCartStore = defineStore('cart', () => {
         }
     }
 
-    
+
     // 获取最新购物车列表action
     const updateNewList = async () => {
         const res = await findNewCartListAPI()
