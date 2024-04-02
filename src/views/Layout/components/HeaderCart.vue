@@ -33,8 +33,8 @@ const cartStore = useCartStore()
             </div>
             <div class="foot">
                 <div class="total">
-                    <p>共 10 件商品</p>
-                    <p>&yen; 100.00 </p>
+                    <p> {{ cartStore.allCount }} </p>
+                    <p>&yen; {{ cartStore.allPrice }} </p>
                 </div>
                 <el-button size="large" type="primary">去购物车结算</el-button>
             </div>
