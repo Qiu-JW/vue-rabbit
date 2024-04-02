@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import { useUserStore } from '@/stores/user'
-
+import router from '@/router'
 
 // 创建axios实例
 const httpinstance = axios.create({
@@ -16,14 +16,10 @@ const httpinstance = axios.create({
 //     // 请求发送错误 返回一个Promise 这个用来显示请求发送错误的信息
 // }, e => Promise.reject(e))
 
-
-
 // axios请求拦截器
 httpinstance.interceptors.request.use(config => {
     // 1. 从pinia获取token数据
     const userStore = useUserStore()
-
-    console.log(useUserStore)
     // 2. 按照后端的要求拼接token数据
     const token = userStore.userInfo.token
     if (token) {
@@ -41,6 +37,17 @@ httpinstance.interceptors.response.use(res => res.data, e => {
         type: 'warning',
         message: e.response.data.message
     })
+    // 401 token 失效处理
+    //1、清除本地用户数据
+    //2、跳转到登录页
+    if (e.response.status === 401) {
+        console.log(1)
+        const userStore = useUserStore()
+
+        userStore.clearUserInfo()
+        router.push('/login')
+    }
+
     return Promise.reject(e)
 })
 
