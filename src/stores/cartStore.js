@@ -3,7 +3,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { useUserStore } from './user'
-import { insertCartAPI, findNewCartListAPI } from '@/apis/cart'
+import { insertCartAPI, findNewCartListAPI,delCartAPI } from '@/apis/cart'
 
 
 export const useCartStore = defineStore('cart', () => {
@@ -58,13 +58,31 @@ export const useCartStore = defineStore('cart', () => {
     
 
     // 删除购物车
+    // const delCart = async (skuId) => {
+    //     // 思路：
+    //     // 1. 找到要删除项的下标值 - splice
+    //     // 2. 使用数组的过滤方法 - filter
+    //     const idx = cartList.value.findIndex((item) => skuId === item.skuId)
+    //     cartList.value.splice(idx, 1)
+    // }
+
+    // 删除购物车
     const delCart = async (skuId) => {
-        // 思路：
-        // 1. 找到要删除项的下标值 - splice
-        // 2. 使用数组的过滤方法 - filter
-        const idx = cartList.value.findIndex((item) => skuId === item.skuId)
-        cartList.value.splice(idx, 1)
+        if (isLogin.value) {
+            // 调用接口实现接口购物车中的删除功能
+            await delCartAPI([skuId])
+            const res = await findNewCartListAPI()
+            cartList.value = res.result
+        } else {
+            // 思路：
+            // 1. 找到要删除项的下标值 - splice
+            // 2. 使用数组的过滤方法 - filter
+            const idx = cartList.value.findIndex((item) => skuId === item.skuId)
+            cartList.value.splice(idx, 1)
+        }
     }
+
+
     // 计算属性
     // 1. 总的数量 所有项的count之和
     const allCount = computed(() => cartList.value.reduce((a, c) => a + c.count, 0))
