@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <RouterLink to="/" class="goods-item">
+    <RouterLink to="/" class="goods-item" >
         <img :src="goods.picture" alt="" />
         <p class="name ellipsis">{{ goods.name }}</p>
         <p class="desc ellipsis">{{ goods.desc }}</p>

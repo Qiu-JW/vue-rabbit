@@ -62,6 +62,10 @@ const router = createRouter({
               component: MemberInfo
             },
             {
+              path: "user",
+              component: MemberInfo
+            },
+            {
               path: "order",
               component: MemberOrder
             }
