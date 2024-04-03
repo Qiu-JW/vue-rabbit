@@ -5,8 +5,8 @@ import Home from '@/views/Home/index.vue'
 import Category from '@/views/Category/index.vue'
 import SubCategory from '@/views/SubCategory/index.vue'
 import Detail from '@/views/Detail/index.vue'
-import Test from '@/views/test/index.vue' // 导入 test 组件
 import CartList from '@/views/CartList/index.vue'
+import Checkout from '@/views/Checkout/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +34,10 @@ const router = createRouter({
         {
           path: 'cartlist',
           component: CartList
+        },
+        {
+          path: "checkout",
+          component: Checkout
         }
       ]
     },
@@ -41,10 +45,7 @@ const router = createRouter({
       path: '/login',
       component: Login
     },
-    {
-      path: '/test',
-      component: Test // 使用 test 组件
-    }
+
   ],
   scrollBehavior(to, from, savedPosition) {
     return { top: 0 }
