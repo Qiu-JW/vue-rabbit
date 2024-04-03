@@ -1,15 +1,12 @@
-**** vue3-rabbit
-小兔鲜儿电商项目（Vite + Vue3）
+# vue3-rabbit
 
+## 小兔鲜儿电商项目（Vite + Vue3）
 
-项目结构
-vue3-rabbit 源代码
-notes 笔记
-show-project 效果展示
-
-技术栈
+## 技术栈
 Vue3全家桶：create-vue、Pinia、ElementPlus、Vue3+Setup、Vue-Router、VueUse
-项目亮点
+
+
+## 项目亮点
 基于业务逻辑的组件拆分思想
 长页面吸顶交互实现
 SKU电商组件封装
