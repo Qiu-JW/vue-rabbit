@@ -41,7 +41,7 @@ httpinstance.interceptors.response.use(res => res.data, e => {
     //1、清除本地用户数据
     //2、跳转到登录页
     if (e.response.status === 401) {
-        console.log(1)
+     
         const userStore = useUserStore()
 
         userStore.clearUserInfo()

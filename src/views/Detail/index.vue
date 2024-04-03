@@ -20,14 +20,14 @@ const cartStore = useCartStore()
 //sku规格被操作时
 let skuObj = {}
 const skuChange = (sku) => {
-    console.log(sku);
+    // console.log(sku);
     skuObj = sku
 }
 
 //count
 const count = ref(1)
 const countChange = (count) => {
-    console.log(count);
+    // console.log(count);
 }
 //添加购物车
 const addCart = () => {

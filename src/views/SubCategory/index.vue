@@ -29,14 +29,12 @@ const getGoodList = async () => {
     const res = await getSubCategoryAPI(reqData.value)
 
     goodList.value = res.result.items
-    console.log(goodList)
 }
 onMounted(() => getGoodList())
 
 
 // tab切换回调
 const tabChange = () => {
-    console.log('tab切换了', reqData.value.sortField)
     reqData.value.page = 1
     getGoodList()
 }
@@ -45,7 +43,6 @@ const tabChange = () => {
 // 加载更多
 const disabled = ref(false)
 const load = async () => {
-    console.log('加载更多数据咯')
     // 获取下一页的数据
     reqData.value.page++
     const res = await getSubCategoryAPI(reqData.value)
