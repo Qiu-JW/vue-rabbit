@@ -7,7 +7,7 @@ const router = useRouter();
 const userStore = useUserStore();
 
 // 打印 token
-console.log(userStore.userInfo.token);
+// console.log(userStore.userInfo.token);
 
 // 定义方法用于跳转到登录页面
 const goToLogin = () => {
