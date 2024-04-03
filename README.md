@@ -7,7 +7,7 @@ Vue3全家桶：create-vue、Pinia、ElementPlus、Vue3+Setup、Vue-Router、Vue
 
 
 ## 项目亮点
-基于业务逻辑的组件拆分思想
++ 基于业务逻辑的组件拆分思想
 长页面吸顶交互实现
 SKU电商组件封装
 图片懒加载指令封装
